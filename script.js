@@ -12,7 +12,7 @@ let captchasubmutted = false;
       }
       else{
         alert("Please check the recaptcha box");
-        event.preventdefault();
+        event.preventDefault();
 }
 
 
