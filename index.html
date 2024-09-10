@@ -5,17 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web to Lead</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="script.js"></script>
   </head>
 
   <body>
     <form
       action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5j0000019Pt8"
-      method="POST" onsubmit="beforeSubmit()"
+      method="POST"
+      onsubmit="beforeSubmit()"
     >
+      <input
+        type="hidden"
+        name="captcha_settings"
+        value='{"keyname":"WebToLeadRecap","fallback":"true","orgId":"00D5j0000019Pt8","ts":""}'
+      />
+
       <input type="hidden" name="oid" value="00D5j0000019Pt8" />
-      <input type="hidden" name="retURL" value="https://gurushabadsaluja.github.io/Web-to-lead/thanks.html" />
-      <input type="hidden" name="Lead_Date__c" class="outputdate"/>
+      <input
+        type="hidden"
+        name="retURL"
+        value="https://gurushabadsaluja.github.io/Web-to-lead/thanks.html"
+      />
+      <input type="hidden" name="Lead_Date__c" class="outputdate" />
       <label for="first_name">First Name</label
       ><input
         id="first_name"
@@ -49,9 +61,15 @@
       <!-- Lead Date:<span class="dateInput dateOnlyInput"><input  id="00NJ4000000P8zU" name="00NJ4000000P8zU" size="12" type="text" /></span><br> -->
 
       <label for="email">Lead Date</label>
-      <input type="date" required="true" class="inputdate"/>
+      <input type="date" required="true" class="inputdate" />
 
       <input type="submit" name="submit" class="submit" />
+      <div
+        class="g-recaptcha"
+        data-callback = "captchasuccess"
+        data-sitekey="6LcZmTwqAAAAAChcwt94nLCI-Hm_MVM2U7B2_z2p"
+      ></div>
+      <br />
     </form>
   </body>
 </html>
